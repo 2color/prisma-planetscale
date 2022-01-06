@@ -7,12 +7,21 @@ import { Post } from '@prisma/client'
 import { useCallback, useState } from 'react'
 import { createPost, resetPosts } from 'lib/api'
 import prisma from 'lib/prisma'
+import { FEPost } from 'lib/types'
 
 // 👇 called at build time
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await prisma.post.findMany({
     orderBy: {
       id: 'desc',
+    },
+    select: {
+      id: true,
+      title: true,
+      excerpt: true,
+      content: true,
+      likes: true,
+      views: true,
     },
   })
   return {
@@ -22,9 +31,8 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 1,
   }
 }
-
 interface HomeProps {
-  posts: Post[]
+  posts: FEPost[]
 }
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -83,12 +91,12 @@ const Home: React.FC<HomeProps> = (props) => {
           </button>
         </div>
         <div className={styles.grid}>
-          {posts.map((p: Post) => {
+          {posts.map((p) => {
             return (
               <div key={`${p.id}`} className={styles.card}>
                 <a>
                   <h3>{p.title}</h3>
-                  <p>{p.content}</p>
+                  <p>{p.excerpt}</p>
                   <div className={styles.buttons}>
                     <Link
                       passHref

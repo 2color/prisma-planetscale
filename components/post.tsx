@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Loader from 'react-loader-spinner'
 import styles from '../styles/Main.module.css'
-import { Post, Comment } from '@prisma/client'
+import { FEPost, FEComment } from 'lib/types'
 import Comments from './comments'
 import Head from 'next/head'
 
 type PostProps = {
-  post: Post & {
-    comments: Comment[] | null
+  post: FEPost & {
+    comments: FEComment[] | null
   }
   onDeletePost: (id: number) => Promise<void>
-  onSubmitComment: (postId: number, comment: string) => Promise<Comment>
+  onSubmitComment: (postId: number, comment: string) => Promise<FEComment>
   onLikePost: (postId: number) => Promise<{ likes: number }>
   onViewPost: (postId: number) => Promise<{ views: number }>
 }

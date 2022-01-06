@@ -1,9 +1,9 @@
 import React from 'react'
+import { FEComment } from 'lib/types'
 import styles from '../styles/Main.module.css'
-import { Comment } from '@prisma/client'
 
 interface CommentsProps {
-  comments: Comment[]
+  comments: FEComment[]
 }
 
 const Comments: React.FC<CommentsProps> = (props) => {

@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { Comment, Post } from '@prisma/client'
+import { FEComment, FEPost } from 'lib/types'
 
 export const deletePost = async (id: number): Promise<void> => {
   await fetch(`/api/posts/${id}`, {
@@ -11,7 +11,7 @@ export const deletePost = async (id: number): Promise<void> => {
 export const submitComment = async (
   postId: number,
   comment: string,
-): Promise<Comment> => {
+): Promise<FEComment> => {
   const response = await fetch(`/api/comments`, {
     method: 'POST',
     body: JSON.stringify({ postId, comment }),
@@ -20,7 +20,7 @@ export const submitComment = async (
   return responseBody
 }
 
-export const createPost = async (): Promise<Post> => {
+export const createPost = async (): Promise<FEPost> => {
   const response = await fetch(`/api/posts`, {
     method: 'POST',
   })
@@ -28,7 +28,7 @@ export const createPost = async (): Promise<Post> => {
   return post
 }
 
-export const resetPosts = async (): Promise<Post[]> => {
+export const resetPosts = async (): Promise<FEPost[]> => {
   const response = await fetch(`/api/reset`, {
     method: 'POST',
   })

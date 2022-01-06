@@ -1,21 +1,26 @@
 import { GetServerSideProps } from 'next'
 import PostComponent from 'components/post'
-import { PrismaClient, Post, Comment } from '@prisma/client'
 import {
   deletePost,
   incrementLikes,
   incrementViews,
   submitComment,
 } from 'lib/api'
-
-const prisma = new PrismaClient()
+import prisma from 'lib/prisma'
+import { FEComment, FEPost } from 'lib/types'
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const matchedPost = await prisma.post.findUnique({
     where: {
       id: Number(params?.id),
     },
-    include: {
+    select: {
+      id: true,
+      title: true,
+      excerpt: true,
+      likes: true,
+      views: true,
+      content: true,
       comments: {
         orderBy: {
           id: 'asc',
@@ -29,10 +34,9 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     },
   }
 }
-
 type PostPageProps = {
-  post: Post & {
-    comments: Comment[]
+  post: FEPost & {
+    comments: FEComment[]
   }
 }
 

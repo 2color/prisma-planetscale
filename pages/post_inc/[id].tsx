@@ -1,8 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import PostComponent from '../../components/post'
 import { useRouter } from 'next/router'
-import { Post, Comment } from '@prisma/client'
-import { deletePost, incrementLikes, incrementViews, submitComment } from '../../lib/api'
+import { FEPost, FEComment } from 'lib/types'
+import {
+  deletePost,
+  incrementLikes,
+  incrementViews,
+  submitComment,
+} from '../../lib/api'
 import prisma from 'lib/prisma'
 
 // This function gets called at build time
@@ -32,8 +37,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     where: {
       id: Number(params?.id),
     },
-    include: {
+    select: {
+      id: true,
+      title: true,
+      excerpt: true,
+      likes: true,
+      views: true,
+      content: true,
       comments: {
+        select: {
+          id: true,
+          comment: true,
+          postId: true,
+        },
         orderBy: {
           id: 'asc',
         },
@@ -53,8 +69,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 type PostPageProps = {
-  post: Post & {
-    comments: Comment[]
+  post: FEPost & {
+    comments: FEComment[]
   }
 }
 
