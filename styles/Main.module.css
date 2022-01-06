@@ -1,0 +1,213 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer img {
+  margin-left: 0.5rem;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.subtitle {
+  color: #f92672ff;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 2rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin-top: 1rem;
+}
+
+.card {
+  min-height: 270px;
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.navigationButton {
+  color: white;
+  background-color: #2289ff;
+  cursor: pointer;
+  margin: 5px 5px 5px 0;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.navigationButton:hover,
+.navigationButton:focus,
+.navigationButton:active {
+  background-color: #0152ae;
+}
+
+.logo {
+  height: 1em;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+}
+
+.commentForm input {
+  margin: 0 1rem;
+}
+
+.deleteButton {
+  color: white;
+  background: red;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.deleteButton:hover,
+.deleteButton:focus,
+.deleteButton:active {
+  background-color: rgb(167, 0, 0);
+}
+
+.buttons {
+  margin: 1rem 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.createButton svg {
+  margin-right: 5px;
+}
+
+.createButton div {
+  height: 0;
+}
+
+.createButton {
+  display: flex;
+  flex-direction: row;
+  margin: 0 1rem 0 0;
+  color: white;
+  background: #00c41d;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.createButton:disabled {
+  background: #008815;
+  cursor: default;
+}
+
+.likeButton {
+  display: flex;
+  flex-direction: row;
+  margin: 0 1rem 0 0;
+  background: rgb(246, 248, 250);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.likeButton:hover {
+  background: rgb(234, 238, 242);
+}
+
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
