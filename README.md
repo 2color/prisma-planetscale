@@ -4,8 +4,10 @@ This is an example blog app showing the best practices when using [**Prisma**](h
 
 The app is built with Next.js, however, all the workflows demonstrated apply to other frameworks.
 
+To learn more about Prisma & PlanetScale best practices check out the video accompanying this repository:
 
-<!-- [![](https://user-images.githubusercontent.com/1992255/135487729-6dbc8da4-deff-47e2-9c28-a875f995eea1.jpg)](https://youtu.be/iyGZ8JFPgoY) -->
+[![Prisma Planetscale Best Practices Guide](https://user-images.githubusercontent.com/1992255/148994499-4557004f-1471-4e19-850e-5946a76ccc15.png)](https://www.youtube.com/watch?v=iaHt5_hg44c)
+
 
 ## Installation
 
@@ -27,11 +29,6 @@ cp .env.example .env
 
 Set the `DATABASE_URL` with the connection string from PlanetScale
 
-## Create the database with Prisma Migrate
-
-```bash
-npx prisma migrate dev
-```
 
 ## Run the App
 
